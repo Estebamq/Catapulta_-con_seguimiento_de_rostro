@@ -3,7 +3,7 @@ import mediapipe as mp
 import serial 
 
 #----------------------------- Puerto Serial Configuracion ----------------------------
-com = serial.Serial("COM4", 9600, write_timeout= 10)
+com = serial.Serial("/dev/ttyUSB0", 9600, write_timeout= 10)
 d = 'd'
 i = 'i'
 p = 'p'
@@ -14,7 +14,8 @@ detector = mp.solutions.face_detection
 dibujo = mp.solutions.drawing_utils
 
 #------------------------------ Realizamos VideoCaptura --------------------------------
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+#cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(-1)#en linux funciona con -1
 
 
 # --------------------------------- Funcion Mouse --------------------------------------
